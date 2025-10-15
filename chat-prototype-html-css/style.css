@@ -1,0 +1,138 @@
+/* ========== Design tokens ========== */
+:root{
+    --bg1:#6e5ddf;
+    --bg2:#7646cc;
+    --card:#ffffff;
+    --panel:#f7f8fb;
+    --border:#e6e7eb;
+    --shadow:0 8px 24px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+    --text:#0f172a;
+    --muted:#6b7280;
+    --header:#5f9be2;
+    --banner:#fbe8a6;
+    --banner-border:#f3d57a;
+    --radius:16px;
+  }
+  
+  /* ========== Page baseline & centering ========== */
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--text);
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  
+  /* ========== Chat window card ========== */
+  chat-window{
+    display: block;
+    width: min(820px, 92vw);
+    height: min(540px, 70vh);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow);
+    overflow: hidden;                
+    position: relative;               
+  }
+  
+  /* Blue header bar (pure CSS, no extra HTML needed) */
+  chat-window::before{
+    content: "Surf Chat Bot";
+    white-space: pre-line;
+    display: block;
+    background: var(--header);
+    color: #fff;
+    padding: 18px 22px 14px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  
+  /* Scrollable message panel appearance */
+  chat-window{
+    /* give space for header using padding + gradient panel feel */
+    background:
+      linear-gradient(#fff 0 0) top/100% 64px no-repeat, /* header cover */
+      linear-gradient(#fff 0 0) bottom/100% 60px no-repeat, /* space for banner if present */
+      var(--panel);
+    padding: 74px 20px 70px; /* top for header, bottom for banner gap */
+    overflow: auto;          /* scroll messages here if you add them */
+  }
+  
+  /* Optional yellow notice at bottom (static demo hint) 
+  chat-window::after{
+    content: "ℹ️  This is a static HTML/CSS demonstration. The input is disabled. See other approaches for interactive versions.";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    display: grid;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--banner);
+    border-top: 1px solid var(--banner-border);
+    color: #3b3b3b;
+    font-size: 0.95rem;
+  }
+  */
+  
+  /* ========== Input tray ========== */
+  .input-area{
+    display: grid;
+    grid-template-columns: 1fr 96px;
+    gap: 10px;
+    width: min(820px, 92vw);
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow);
+  }
+  
+  textarea{
+    height: 46px;
+    resize: none;
+    padding: 12px 16px;
+    font-size: 15px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    outline: none;
+    background: #f9fafb;
+    color: var(--text);
+  }
+  
+  button{
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #d1d5db;  /* muted like the screenshot’s disabled button */
+    color: #6b7280;
+    font-weight: 700;
+    cursor: default;
+  }
+  
+  /* If you later enable the button, you can use this state */
+  button:not([disabled]){
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:not([disabled]):hover{ filter: brightness(1.1); }
+  
+  /* ========== Nice round corners on the chat panel content you add later ========== */
+  /* Example bubble styles if you start inserting messages */
+  .message{
+    max-width: clamp(260px, 60ch, 78%);
+    padding: 12px 14px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    margin: 10px 0;
+  }
+  .message.bot{ background: #ededf0; color:#111; margin-right:auto; }
+  .message.user{ background: #3f6bda; color:#fff; margin-left:auto; border-color: transparent; }
+  
