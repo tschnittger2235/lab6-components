@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surf Chat Bot — DOM Version</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat-wrapper" aria-label="Chat prototype (interactive)">
+    <header class="chat-header">
+      <h1>Stupid Chat Bot</h1>
+    </header>
+
+    <!-- Message history (JS will dynamically add messages here) -->
+    <section id="messages" class="chat-box" role="log" aria-live="polite" aria-relevant="additions"></section>
+
+    <!-- Chat input -->
+    <section id="messages" class="chat-box" role="log" aria-live="polite" aria-relevant="additions"></section>
+
+        <form id="chat-form" class="chat-input" aria-label="Send a message">
+            <label for="user-input" class="sr-only">Message</label>
+            <input id="user-input" type="text" placeholder="Type a message…" autocomplete="off" />
+            <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <!-- Load scripts -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
