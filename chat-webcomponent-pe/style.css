@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #7b5cf3;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  main {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .messages {
+    height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .message {
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 70%;
+    line-height: 1.4;
+  }
+  
+  .message.bot {
+    background: #d7f8d7;
+    align-self: flex-start;
+  }
+  
+  .message.user {
+    background: #cfe3ff;
+    align-self: flex-end;
+  }
+  
+  .input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .input-area input {
+    flex: 1;
+    padding: 8px;
+  }
+  
+  .input-area button {
+    padding: 8px 14px;
+  }
+  
